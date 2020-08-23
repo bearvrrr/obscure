@@ -5,8 +5,6 @@ local beautiful = require("beautiful")
 
 local timer = require("obvious.lib.hooks").timer
 
-module("obscure.widget.gradient_graph")
-
 local function create(data)
     local theme  = beautiful.get()
     local fg     = theme.graph_fg_color or theme.widget_fg_color or theme.fg_normal
@@ -55,4 +53,4 @@ local function create(data)
     return widget
 end
 
-setmetatable(_M, { __call = function(_, ...) return create(...) end })
+return setmetatable({}, { __call = function(_, ...) return create(...) end })

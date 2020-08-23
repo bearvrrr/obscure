@@ -5,9 +5,6 @@ local timer = require("obvious.lib.hooks").timer
 local cpu_usage = require("obvious.cpu").cpu_usage
 local gradient_graph = require("obscure.widget.gradient_graph")
 
-module("obscure.cpu")
-
-
 local function create(label)
     local label = label or "CPU"
     local data = {}
@@ -28,4 +25,4 @@ local function create(label)
     return widget
 end
 
-setmetatable(_M, { __call = function(_, ...) return create(...) end })
+return setmetatable({}, { __call = function(_, ...) return create(...) end })

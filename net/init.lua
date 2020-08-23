@@ -14,8 +14,6 @@ local gears = require("gears")
 local get_net_data = require("obvious.net").get_data
 local timer = require("obvious.lib.hooks").timer
 
-module("obscure.net")
-
 local function round(num)
     return math.floor(num + 0.5)
 end
@@ -159,4 +157,4 @@ function create(label, show_first)
     return widget
 end
 
-setmetatable(_M, { __call = function(_, ...) return create(...) end })
+return setmetatable({}, { __call = function(_, ...) return create(...) end })
